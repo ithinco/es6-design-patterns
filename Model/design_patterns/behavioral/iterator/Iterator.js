@@ -1,5 +1,6 @@
 'use strict';
 
+外部迭代器
 class Iterator {
     constructor() {
     }
@@ -59,10 +60,47 @@ class ConcreteAggregate extends Aggregate {
     }
 }
 
+//《松本行宏的程序世界》
+
+const anotherIterator = (obj) => {
+  let current = 0;
+
+  let first = () => {
+    return obj[0];
+  }
+
+  let next = () => {
+    current += 1;
+    return obj[current];
+  };
+
+  let isDone = () => {
+    return current >= obj.length;
+  };
+
+  let getCurrentItem = () => {
+    return obj[current];
+  };
+
+  return {
+    first,
+    next,
+    isDone,
+    getCurrentItem
+  };
+
+}
+
+
 function init_Iterator() {
-    var aggregate = new ConcreteAggregate([0,1,2,3,4,5,6,7])
-    aggregate.CreateIterator()
-    facade.log(aggregate.iterator.First())
-    facade.log(aggregate.iterator.Next())
-    facade.log(aggregate.iterator.CurrentItem())
+  let aggregate = new ConcreteAggregate([0,1,2,3,4,5,6,7]);
+  aggregate.CreateIterator();
+  facade.log(aggregate.iterator.First());
+  facade.log(aggregate.iterator.Next());
+  facade.log(aggregate.iterator.CurrentItem());
+  facade.log('Another Iterator');
+  let anotherIte = anotherIterator(aggregate); 
+  facade.log(anotherIte.first());
+  facade.log(anotherIte.next());
+  facade.log(anotherIte.getCurrentItem());
 }
