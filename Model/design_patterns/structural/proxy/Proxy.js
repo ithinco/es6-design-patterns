@@ -1,37 +1,39 @@
 'use strict';
 
 class Subject {
-    constructor() {
-    }
+  constructor() {
 
-    Request (){
-    }
+  }
+
+  Request (){
+
+  }
 }
 
 class RealSubject extends Subject {
-    constructor() {
-        super()
-        facade.log('RealSubject created')
-    }
+  constructor() {
+    super();
+    facade.log('RealSubject created');
+  }
 
-    Request (){
-        facade.log('RealSubject handles request')
-    }
+  Request (){
+    facade.log('RealSubject handles request');
+  }
 }
 
 class Proxy extends Subject {
-    constructor() {
-        super()
-        facade.log('Proxy created')
-    }
+  constructor() {
+    super();
+    facade.log('Proxy created');
+  }
 
-    Request (){
-        this.realSubject = new RealSubject();
-        this.realSubject.Request();
-    }
+  Request (){
+    this.realSubject = new RealSubject();
+    this.realSubject.Request();
+  }
 }
 
 function init_Proxy() {
-    var proxy = new Proxy()
-    proxy.Request()
+  var proxy = new Proxy();
+  proxy.Request();
 }
