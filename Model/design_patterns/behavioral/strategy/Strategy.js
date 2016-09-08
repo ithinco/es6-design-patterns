@@ -54,10 +54,10 @@ class ConcreteStrategyB extends Strategy{
 //《JavaScript设计模式与开发实践》
 const strategies = {
   'A': () => {
-    facade.log('Another StrategyA algorithm')
-  }，
+    facade.log('Another StrategyA algorithm');
+  },
   'B': () => {
-    facade.log('Another StrategyB algorithm')
+    facade.log('Another StrategyB algorithm');
   }
 };
 
@@ -66,12 +66,10 @@ const contexttt = ( strategyCode ){
 }
 
 function init_Strategy() {
-  let contextA = new Contexttt("A")
-  contextA.ContextInterface()
-  let contextB = new Contexttt("B")
-  contextB.ContextInterface()
+  let contextA = new Contexttt("A");
+  contextA.ContextInterface();
+  let contextB = new Contexttt("B");
+  contextB.ContextInterface();
   contexttt('A');
   contexttt('B');
 }
-
-
