@@ -6,10 +6,10 @@ class Contexttt {
     switch(type) {
       case "A":
         this.strategy = new ConcreteStrategyA();
-          break
+          break;
       case "B":
         this.strategy = new ConcreteStrategyB();
-          break
+          break;
       default:
         this.strategy = new ConcreteStrategyA();
     }
@@ -61,9 +61,9 @@ const strategies = {
   }
 };
 
-const contexttt = ( strategyCode ){
+const contexttt = ( strategyCode ) => {
     strategies[strategyCode]();
-}
+};
 
 function init_Strategy() {
   let contextA = new Contexttt("A");
